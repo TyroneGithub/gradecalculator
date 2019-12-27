@@ -181,6 +181,31 @@ li{
     xborder-bottom: 1px solid black;
 }
 
+.grade-container .grade-node .footer{
+    background:#3FA663;
+    height:100px;
+    border-radius: 0px 0px 10px 10px;
+   
+}
+
+.footer-elements{
+    text-align:right;
+    margin-right:40px;
+    color:white;
+    font-size:15px;
+    
+}
+.grade-container .grade-node .footer .totalScore{
+    margin-right:18px;
+}
+.grade-container .grade-node .footer .yourScore{
+    margin-right:110px;
+}
+.grade-container .grade-node .footer .yourPercent{
+    margin-right:21px;
+}
+
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
