@@ -2,8 +2,9 @@ const percent = document.querySelector("#percentage");
 const categ = document.querySelector("#category");
 const add = document.querySelector(".add");
 const addElementButt = document.querySelector(".addElem");
+const removeElementButt = document.querySelector(".removeElem");
 const inputList = document.querySelector(".element-inputs")
-const selectLi = document.querySelector("li").lastElementChild;
+//const selectLi = document.querySelector("li").lastElementChild;
 const yourScore = document.querySelector(".yourScore");
 const totalScore = document.querySelector(".totalScore");
 const percentage = document.querySelector(".yourPercent");
@@ -15,17 +16,35 @@ let actNum = 0;
 let yourPercent; 
 let totalPercent; 
 
+
+
 addElementButt.addEventListener("click",addElement);
+removeElementButt.addEventListener("click",removeElement);
 percent.addEventListener("input",computePercentage);
+
+
 if(percent.value.length === 0)
         percent.value = 0;
     
+function removeElement(){
+    const li = document.querySelector("li");
+    const score = document.querySelector('.scoreBox');
+    const total = document.querySelector(".totalBox");
+    sumScore -= score.value;
+    sumTotal -= total.value;
+    li.remove();
+    displayScore(sumScore);
+    displayTotal(sumTotal);
+    computePercentage();
+}
 
 function addElement(){
     const li = document.createElement('li');
     const addActBox = document.createElement('input','text');
     const addScoreBox = document.createElement('input','number');
     const addTotalBox = document.createElement('input','number');
+
+    inputList.appendChild(li);
 
     li.appendChild(addActBox);
     addActBox.classList.add("activity");
@@ -45,7 +64,7 @@ function addElement(){
     addTotalBox.setAttribute("step","0.01");
     addTotalBox.value = 0 ;
    
-    inputList.appendChild(li);
+    
     li.appendChild(document.createElement('br'));
     li.appendChild(document.createElement('br'));
     //document.createElement('br');
@@ -54,10 +73,6 @@ function addElement(){
     computeYourScore();
     computeTotalScore();
     computePercentage();
-}
-
-function getWeight(){
-    
 }
 
 
@@ -70,7 +85,7 @@ function computeYourScore(){
         if(score[i]){
             scoreIn = parseFloat(score[i].value);
             if(score[i].value.length == 0){
-                score[i].value = 0;
+                score[i].value = '';
                 scoreIn = 0;
                 
             }
@@ -94,7 +109,7 @@ function computeTotalScore(){
         if(score[i]){
             scoreIn = parseFloat(score[i].value);
             if(score[i].value.length == 0){
-                score[i].value = 0;
+                score[i].value = '';
                 scoreIn = 0;
             }
             else

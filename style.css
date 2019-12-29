@@ -196,10 +196,12 @@ li{
     
 }
 .grade-container .grade-node .footer .totalScore{
-    margin-right:18px;
+    position: absolute;
+    margin-left:-116px;
 }
 .grade-container .grade-node .footer .yourScore{
-    margin-right:110px;
+    position: absolute;
+    margin-left:-327px;
 }
 .grade-container .grade-node .footer .yourPercent{
     margin-right:21px;
